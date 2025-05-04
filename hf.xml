@@ -16,7 +16,7 @@ int boardedC;
 
 const int d = 0;
 const int upperLimit = 5;
-int zeroPassangers = 1;
+int zeroPassangers = 0;
 
 bool isSafe(int m, int c) {
     if (m == 0) {
@@ -35,6 +35,10 @@ bool safeThere() {
 
 bool canFitZero(int m, int c) {
     return (0 &lt;= m + c) and (m + c &lt;= B);
+}
+
+bool canFitZeroThere(int m, int c) {
+     return zeroPassangers != 0 and canFitZero(m, c) and (M - m) != 0 and (C - c) != 0;
 }
 
 bool canFit(int m, int c) {
@@ -71,41 +75,67 @@ bool done() {
 		</location>
 		<init ref="id0"/>
 		<transition id="id7">
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="select" x="-2371" y="-603">m1: int[0, upperLimit],
+c1: int[0, upperLimit]</label>
+			<label kind="guard" x="-2618" y="-544">canFitZeroThere(m1, c1) and validValue(m, m1) and validValue(c, c1) and zeroPassangers != 0</label>
+			<label kind="assignment" x="-2141" y="-412">m = m - m1,
+c = c - c1,
+boardedM = m1,
+boardedC = c1,
+zeroPassangers--</label>
+			<nail x="-2159" y="-671"/>
+		</transition>
+		<transition id="id8">
+			<source ref="id3"/>
+			<target ref="id6"/>
+			<label kind="select" x="-569" y="-51">m1: int[0, upperLimit],
+c1: int[0, upperLimit]</label>
+			<label kind="guard" x="-510" y="0">canFitZero(m1, c1) and validValue(M - m, m1) and validValue(C - c, c1) and !done() and zeroPassangers != 0</label>
+			<label kind="assignment" x="-289" y="76">m = m + m1,
+c = c + c1,
+boardedM = m1,
+boardedC = c1,
+zeroPassangers--</label>
+			<nail x="-289" y="221"/>
+		</transition>
+		<transition id="id9">
 			<source ref="id6"/>
 			<target ref="id4"/>
 			<label kind="guard" x="-1793" y="42">safeHere() and safeThere()</label>
 		</transition>
-		<transition id="id8">
+		<transition id="id10">
 			<source ref="id6"/>
 			<target ref="id2"/>
 			<label kind="guard" x="-1402" y="8">!safeHere() or !safeThere()</label>
 		</transition>
-		<transition id="id9">
+		<transition id="id11">
 			<source ref="id5"/>
 			<target ref="id2"/>
 			<label kind="guard" x="-1402" y="-314">!safeHere() or !safeThere()</label>
 		</transition>
-		<transition id="id10">
+		<transition id="id12">
 			<source ref="id5"/>
 			<target ref="id3"/>
 			<label kind="guard" x="-1071" y="-399">safeHere() and safeThere()</label>
 		</transition>
-		<transition id="id11">
+		<transition id="id13">
 			<source ref="id3"/>
 			<target ref="id2"/>
 			<label kind="guard" x="-1232" y="-178">!isSafe(m, c) and !isSafe(M-m, C-c)</label>
 		</transition>
-		<transition id="id12">
+		<transition id="id14">
 			<source ref="id4"/>
 			<target ref="id2"/>
 			<label kind="guard" x="-1733" y="-187">!isSafe(m, c) and !isSafe(M-m, C-c)</label>
 		</transition>
-		<transition id="id13">
+		<transition id="id15">
 			<source ref="id3"/>
 			<target ref="id1"/>
 			<label kind="guard" x="-748" y="-144">done()</label>
 		</transition>
-		<transition id="id14">
+		<transition id="id16">
 			<source ref="id3"/>
 			<target ref="id6"/>
 			<label kind="select" x="-1037" y="59">m1: int[0, upperLimit],
@@ -116,7 +146,7 @@ c = c + c1,
 boardedM = m1,
 boardedC = c1</label>
 		</transition>
-		<transition id="id15">
+		<transition id="id17">
 			<source ref="id4"/>
 			<target ref="id5"/>
 			<label kind="select" x="-1675" y="-536">m1: int[0, upperLimit],
@@ -127,7 +157,7 @@ c = c - c1,
 boardedM = m1,
 boardedC = c1</label>
 		</transition>
-		<transition id="id16">
+		<transition id="id18">
 			<source ref="id0"/>
 			<target ref="id4"/>
 			<label kind="select" x="-1972" y="-314">x: int[1, upperLimit],
@@ -152,35 +182,35 @@ system Process;
 		<query>
 			<formula>A[] deadlock imply (Process.Fail || Process.Success)</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-03 15:54:33 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-04 23:56:21 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-03 16:16:04 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-04 23:56:24 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==3 &amp;&amp; Process.C==3 &amp;&amp; Process.B==2</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-03 16:16:21 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-04 23:56:31 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==2</formula>
 			<comment/>
-			<result outcome="failure" type="quality" timestamp="2025-05-03 16:18:22 +0200">
+			<result outcome="failure" type="quality" timestamp="2025-05-04 23:56:36 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==3</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-03 16:24:50 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-04 23:56:40 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
