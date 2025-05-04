@@ -13,8 +13,10 @@ int m;
 int c;
 int boardedM;
 int boardedC;
+
 const int d = 0;
 const int upperLimit = 5;
+int zeroPassangers = 1;
 
 bool isSafe(int m, int c) {
     if (m == 0) {
@@ -31,14 +33,13 @@ bool safeThere() {
     return isSafe(M-m, C-c);
 }
 
+bool canFitZero(int m, int c) {
+    return (0 &lt;= m + c) and (m + c &lt;= B);
+}
+
 bool canFit(int m, int c) {
     return (0 &lt; m + c) and (m + c &lt;= B);
 }
-
-bool stateCorrect(int m, int c) {
-    return (m &gt;= 0) and (c &gt;= 0) and (M &gt;= m) and (C &gt;= c);
-}
-
 
 bool validValue(int max, int value) {
     return (0 &lt;= value) and (value &lt;= max);
@@ -63,8 +64,10 @@ bool done() {
 			<name x="-1887" y="-187">Boat_here</name>
 		</location>
 		<location id="id5" x="-1309" y="-561">
+			<name x="-1283" y="-569">H1</name>
 		</location>
 		<location id="id6" x="-1309" y="255">
+			<name x="-1343" y="246">H2</name>
 		</location>
 		<init ref="id0"/>
 		<transition id="id7">
@@ -136,8 +139,7 @@ C = y,
 B = z,
 
 m = M,
-c = C,
-b = B</label>
+c = C</label>
 		</transition>
 	</template>
 	<system>// Place template instantiations here.
