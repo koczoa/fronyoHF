@@ -11,7 +11,6 @@ int C;
 int B;
 int m;
 int c;
-int b;
 int boardedM;
 int boardedC;
 const int d = 0;
@@ -48,68 +47,68 @@ bool validValue(int max, int value) {
 bool done() {
     return (m == 0) and (c == 0);
 }</declaration>
-		<location id="id0" x="-1513" y="-119">
-			<name x="-1606" y="-127">Init</name>
+		<location id="id0" x="-2023" y="-153">
+			<name x="-2116" y="-161">Init</name>
 		</location>
-		<location id="id1" x="187" y="-119">
-			<name x="212" y="-128">Success</name>
+		<location id="id1" x="-663" y="-153">
+			<name x="-638" y="-162">Success</name>
 		</location>
-		<location id="id2" x="-561" y="-119">
-			<name x="-552" y="-153">Fail</name>
+		<location id="id2" x="-1309" y="-153">
+			<name x="-1300" y="-187">Fail</name>
 		</location>
-		<location id="id3" x="-51" y="-119">
-			<name x="-61" y="-153">Boat_there</name>
+		<location id="id3" x="-799" y="-153">
+			<name x="-809" y="-187">Boat_there</name>
 		</location>
-		<location id="id4" x="-1088" y="-119">
-			<name x="-1156" y="-153">Boat_here</name>
+		<location id="id4" x="-1819" y="-153">
+			<name x="-1887" y="-187">Boat_here</name>
 		</location>
-		<location id="id5" x="-561" y="-527">
+		<location id="id5" x="-1309" y="-561">
 		</location>
-		<location id="id6" x="-561" y="289">
+		<location id="id6" x="-1309" y="255">
 		</location>
 		<init ref="id0"/>
 		<transition id="id7">
 			<source ref="id6"/>
 			<target ref="id4"/>
-			<label kind="guard" x="-1070" y="51">safeHere() and safeThere()</label>
+			<label kind="guard" x="-1793" y="42">safeHere() and safeThere()</label>
 		</transition>
 		<transition id="id8">
 			<source ref="id6"/>
 			<target ref="id2"/>
-			<label kind="guard" x="-561" y="51">!safeHere() or !safeThere()</label>
+			<label kind="guard" x="-1402" y="8">!safeHere() or !safeThere()</label>
 		</transition>
 		<transition id="id9">
 			<source ref="id5"/>
 			<target ref="id2"/>
-			<label kind="guard" x="-552" y="-289">!safeHere() or !safeThere()</label>
+			<label kind="guard" x="-1402" y="-314">!safeHere() or !safeThere()</label>
 		</transition>
 		<transition id="id10">
 			<source ref="id5"/>
 			<target ref="id3"/>
-			<label kind="guard" x="-323" y="-365">safeHere() and safeThere()</label>
+			<label kind="guard" x="-1071" y="-399">safeHere() and safeThere()</label>
 		</transition>
 		<transition id="id11">
 			<source ref="id3"/>
 			<target ref="id2"/>
-			<label kind="guard" x="-484" y="-144">!isSafe(m, c) and !isSafe(M-m, C-c)</label>
+			<label kind="guard" x="-1232" y="-178">!isSafe(m, c) and !isSafe(M-m, C-c)</label>
 		</transition>
 		<transition id="id12">
 			<source ref="id4"/>
 			<target ref="id2"/>
-			<label kind="guard" x="-985" y="-153">!isSafe(m, c) and !isSafe(M-m, C-c)</label>
+			<label kind="guard" x="-1733" y="-187">!isSafe(m, c) and !isSafe(M-m, C-c)</label>
 		</transition>
 		<transition id="id13">
 			<source ref="id3"/>
 			<target ref="id1"/>
-			<label kind="guard" x="59" y="-153">done()</label>
+			<label kind="guard" x="-748" y="-144">done()</label>
 		</transition>
 		<transition id="id14">
 			<source ref="id3"/>
 			<target ref="id6"/>
-			<label kind="select" x="-493" y="280">m1: int[0, upperLimit],
+			<label kind="select" x="-1037" y="59">m1: int[0, upperLimit],
 c1: int[0, upperLimit]</label>
-			<label kind="guard" x="-841" y="357">canFit(m1, c1) and validValue(M - m, m1) and validValue(C - c, c1) and !done()</label>
-			<label kind="assignment" x="-969" y="374">m = m + m1,
+			<label kind="guard" x="-1114" y="110">canFit(m1, c1) and validValue(M - m, m1) and validValue(C - c, c1) and !done()</label>
+			<label kind="assignment" x="-1114" y="144">m = m + m1,
 c = c + c1,
 boardedM = m1,
 boardedC = c1</label>
@@ -117,10 +116,10 @@ boardedC = c1</label>
 		<transition id="id15">
 			<source ref="id4"/>
 			<target ref="id5"/>
-			<label kind="select" x="-833" y="-680">m1: int[0, upperLimit],
+			<label kind="select" x="-1675" y="-536">m1: int[0, upperLimit],
 c1: int[0, upperLimit]</label>
-			<label kind="guard" x="-1113" y="-612">canFit(m1, c1) and validValue(m, m1) and validValue(c, c1)</label>
-			<label kind="assignment" x="-824" y="-569">m = m - m1,
+			<label kind="guard" x="-1904" y="-485">canFit(m1, c1) and validValue(m, m1) and validValue(c, c1)</label>
+			<label kind="assignment" x="-1675" y="-459">m = m - m1,
 c = c - c1,
 boardedM = m1,
 boardedC = c1</label>
@@ -128,11 +127,11 @@ boardedC = c1</label>
 		<transition id="id16">
 			<source ref="id0"/>
 			<target ref="id4"/>
-			<label kind="select" x="-1419" y="-289">x: int[1, upperLimit],
+			<label kind="select" x="-1972" y="-314">x: int[1, upperLimit],
 y: int[1, upperLimit],
 z: int[2, upperLimit]</label>
-			<label kind="guard" x="-1394" y="-221">x &gt;= y</label>
-			<label kind="assignment" x="-1394" y="-195">M = x,
+			<label kind="guard" x="-1972" y="-246">x &gt;= y</label>
+			<label kind="assignment" x="-1972" y="-221">M = x,
 C = y,
 B = z,
 
@@ -179,7 +178,7 @@ system Process;
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==3</formula>
 			<comment/>
-			<result outcome="failure" type="quality" timestamp="2025-05-03 16:19:05 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-03 16:24:50 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
