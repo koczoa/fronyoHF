@@ -182,35 +182,35 @@ system Process;
 		<query>
 			<formula>A[] deadlock imply (Process.Fail || Process.Success)</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-04 23:56:21 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-05 00:09:37 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-04 23:56:24 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-05 00:09:45 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==3 &amp;&amp; Process.C==3 &amp;&amp; Process.B==2</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-04 23:56:31 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-05 00:09:49 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==2</formula>
 			<comment/>
-			<result outcome="failure" type="quality" timestamp="2025-05-04 23:56:36 +0200">
+			<result outcome="failure" type="quality" timestamp="2025-05-05 00:09:52 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==3</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-04 23:56:40 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-05 00:09:56 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
