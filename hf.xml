@@ -210,21 +210,30 @@ system Process;
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==3 &amp;&amp; Process.C==3 &amp;&amp; Process.B==2 &amp;&amp; Process.initialZP==0</formula>
 			<comment/>
+			<result outcome="success" type="quality" timestamp="2025-05-05 14:47:49 +0200">
+				<option key="--diagnostic" value="1"/>
+			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==3 &amp;&amp; Process.C==3 &amp;&amp; Process.B==2 &amp;&amp; Process.initialZP==1</formula>
 			<comment/>
+			<result outcome="success" type="quality" timestamp="2025-05-05 14:48:03 +0200">
+				<option key="--diagnostic" value="1"/>
+			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==2 &amp;&amp; Process.initialZP==0</formula>
 			<comment/>
-			<result outcome="failure" type="quality" timestamp="2025-05-05 14:45:44 +0200">
+			<result outcome="failure" type="quality" timestamp="2025-05-05 14:48:41 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==3 &amp;&amp; Process.initialZP==0</formula>
 			<comment/>
+			<result outcome="success" type="quality" timestamp="2025-05-05 14:46:04 +0200">
+				<option key="--diagnostic" value="1"/>
+			</result>
 		</query>
 	</queries>
 </nta>
