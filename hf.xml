@@ -16,8 +16,8 @@ int boardedC;
 
 const int d = 0;
 const int upperLimit = 5;
-int zeroPassangers = 0;
-
+int zeroPassangers;
+int initialZP;
 bool isSafe(int m, int c) {
     if (m == 0) {
         return true;
@@ -52,8 +52,8 @@ bool validValue(int max, int value) {
 bool done() {
     return (m == 0) and (c == 0);
 }</declaration>
-		<location id="id0" x="-2023" y="-153">
-			<name x="-2116" y="-161">Init</name>
+		<location id="id0" x="-2295" y="-153">
+			<name x="-2388" y="-161">Init</name>
 		</location>
 		<location id="id1" x="-663" y="-153">
 			<name x="-638" y="-162">Success</name>
@@ -77,28 +77,34 @@ bool done() {
 		<transition id="id7">
 			<source ref="id4"/>
 			<target ref="id5"/>
-			<label kind="select" x="-2371" y="-603">m1: int[0, upperLimit],
+			<label kind="select" x="-2269" y="-476">m1: int[0, upperLimit],
 c1: int[0, upperLimit]</label>
-			<label kind="guard" x="-2618" y="-544">canFitZeroThere(m1, c1) and validValue(m, m1) and validValue(c, c1) and zeroPassangers != 0</label>
-			<label kind="assignment" x="-2141" y="-412">m = m - m1,
+			<label kind="guard" x="-2261" y="-416">canFitZeroThere(m1, c1) and 
+validValue(m, m1) and 
+validValue(c, c1)</label>
+			<label kind="assignment" x="-2091" y="-365">m = m - m1,
 c = c - c1,
 boardedM = m1,
 boardedC = c1,
 zeroPassangers--</label>
-			<nail x="-2159" y="-671"/>
+			<nail x="-2159" y="-561"/>
 		</transition>
 		<transition id="id8">
 			<source ref="id3"/>
 			<target ref="id6"/>
-			<label kind="select" x="-569" y="-51">m1: int[0, upperLimit],
+			<label kind="select" x="-663" y="-93">m1: int[0, upperLimit],
 c1: int[0, upperLimit]</label>
-			<label kind="guard" x="-510" y="0">canFitZero(m1, c1) and validValue(M - m, m1) and validValue(C - c, c1) and !done() and zeroPassangers != 0</label>
-			<label kind="assignment" x="-289" y="76">m = m + m1,
+			<label kind="guard" x="-535" y="-51">canFitZero(m1, c1) and 
+validValue(M - m, m1) and 
+validValue(C - c, c1) and 
+!done() and 
+zeroPassangers != 0</label>
+			<label kind="assignment" x="-408" y="51">m = m + m1,
 c = c + c1,
 boardedM = m1,
 boardedC = c1,
 zeroPassangers--</label>
-			<nail x="-289" y="221"/>
+			<nail x="-280" y="255"/>
 		</transition>
 		<transition id="id9">
 			<source ref="id6"/>
@@ -138,10 +144,13 @@ zeroPassangers--</label>
 		<transition id="id16">
 			<source ref="id3"/>
 			<target ref="id6"/>
-			<label kind="select" x="-1037" y="59">m1: int[0, upperLimit],
+			<label kind="select" x="-1003" y="8">m1: int[0, upperLimit],
 c1: int[0, upperLimit]</label>
-			<label kind="guard" x="-1114" y="110">canFit(m1, c1) and validValue(M - m, m1) and validValue(C - c, c1) and !done()</label>
-			<label kind="assignment" x="-1114" y="144">m = m + m1,
+			<label kind="guard" x="-1071" y="68">canFit(m1, c1) and 
+validValue(M - m, m1) and 
+validValue(C - c, c1) and 
+!done()</label>
+			<label kind="assignment" x="-1164" y="144">m = m + m1,
 c = c + c1,
 boardedM = m1,
 boardedC = c1</label>
@@ -149,10 +158,12 @@ boardedC = c1</label>
 		<transition id="id17">
 			<source ref="id4"/>
 			<target ref="id5"/>
-			<label kind="select" x="-1675" y="-536">m1: int[0, upperLimit],
+			<label kind="select" x="-1564" y="-544">m1: int[0, upperLimit],
 c1: int[0, upperLimit]</label>
-			<label kind="guard" x="-1904" y="-485">canFit(m1, c1) and validValue(m, m1) and validValue(c, c1)</label>
-			<label kind="assignment" x="-1675" y="-459">m = m - m1,
+			<label kind="guard" x="-1623" y="-501">canFit(m1, c1) and
+validValue(m, m1) and 
+validValue(c, c1)</label>
+			<label kind="assignment" x="-1683" y="-433">m = m - m1,
 c = c - c1,
 boardedM = m1,
 boardedC = c1</label>
@@ -160,16 +171,19 @@ boardedC = c1</label>
 		<transition id="id18">
 			<source ref="id0"/>
 			<target ref="id4"/>
-			<label kind="select" x="-1972" y="-314">x: int[1, upperLimit],
+			<label kind="select" x="-2252" y="-153">x: int[1, upperLimit],
 y: int[1, upperLimit],
-z: int[2, upperLimit]</label>
-			<label kind="guard" x="-1972" y="-246">x &gt;= y</label>
-			<label kind="assignment" x="-1972" y="-221">M = x,
+z: int[2, upperLimit],
+w: int[0, upperLimit]</label>
+			<label kind="guard" x="-2252" y="-68">x &gt;= y</label>
+			<label kind="assignment" x="-2252" y="-42">M = x,
 C = y,
 B = z,
 
 m = M,
-c = C</label>
+c = C,
+zeroPassangers = w,
+initialZP = w</label>
 		</transition>
 	</template>
 	<system>// Place template instantiations here.
@@ -182,37 +196,35 @@ system Process;
 		<query>
 			<formula>A[] deadlock imply (Process.Fail || Process.Success)</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-05 00:09:37 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-05 13:51:26 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Process.Success</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-05 00:09:45 +0200">
+			<result outcome="success" type="quality" timestamp="2025-05-05 13:54:38 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
-			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==3 &amp;&amp; Process.C==3 &amp;&amp; Process.B==2</formula>
+			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==3 &amp;&amp; Process.C==3 &amp;&amp; Process.B==2 &amp;&amp; Process.initialZP==0</formula>
 			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-05 00:09:49 +0200">
+		</query>
+		<query>
+			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==3 &amp;&amp; Process.C==3 &amp;&amp; Process.B==2 &amp;&amp; Process.initialZP==1</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==2 &amp;&amp; Process.initialZP==0</formula>
+			<comment/>
+			<result outcome="failure" type="quality" timestamp="2025-05-05 14:45:44 +0200">
 				<option key="--diagnostic" value="1"/>
 			</result>
 		</query>
 		<query>
-			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==2</formula>
+			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==3 &amp;&amp; Process.initialZP==0</formula>
 			<comment/>
-			<result outcome="failure" type="quality" timestamp="2025-05-05 00:09:52 +0200">
-				<option key="--diagnostic" value="1"/>
-			</result>
-		</query>
-		<query>
-			<formula>E&lt;&gt; Process.Success &amp;&amp; Process.M==4 &amp;&amp; Process.C==4 &amp;&amp; Process.B==3</formula>
-			<comment/>
-			<result outcome="success" type="quality" timestamp="2025-05-05 00:09:56 +0200">
-				<option key="--diagnostic" value="1"/>
-			</result>
 		</query>
 	</queries>
 </nta>
